@@ -11,6 +11,32 @@
 </head>
 
 <body>
+    <h1>Visitor Counter</h1>
+    <p>Total Visitors: <span id="visitorCount">1</span></p>
+
+    <script>
+        // Function to read the visitor count from localStorage
+        function readVisitorCount() {
+            const count = localStorage.getItem('visitorCount');
+            return count ? parseInt(count) : 1;
+        }
+
+        // Function to write the visitor count to localStorage
+        function writeVisitorCount(count) {
+            localStorage.setItem('visitorCount', count);
+        }
+
+        // Function to update and display the visitor count
+        function updateVisitorCount() {
+            let count = readVisitorCount();
+            count++;
+            writeVisitorCount(count);
+            document.getElementById('visitorCount').textContent = count;
+        }
+
+        // Call the updateVisitorCount function when the page loads
+        window.onload = updateVisitorCount;
+    </script>
     <iframe src="https://gamma.app/embed/vhjcv8ukrp4ei4m" style=" width: 100%; height: 100vh;" allow="fullscreen"
         title="अपना चंद्रयान"></iframe>
     <!-- Header -->
